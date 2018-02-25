@@ -1,0 +1,126 @@
+$( document ).ready(function() {
+	
+	function validar_email(valor)
+	{
+		// creamos nuestra regla con expresiones regulares.
+		var filter = /[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+		// utilizamos test para comprobar si el parametro valor cumple la regla
+		if(filter.test(valor))
+			return true;
+		else
+			return false;
+	}
+
+	$('.btn-enviar-registro').click(function(){
+
+			$('#frm_registro').submit();
+
+	});
+
+	$('#btn-actualizar-datos').click(function(){
+		
+			$('#frm_actualizar').submit();
+			return false;
+		
+	});
+	$('.boton_borrar_informe').click(function(){
+		
+			//$('#frm_actualizar').submit();
+			//return false;
+			//alert($('#elemento_borrar').val());
+			var id= $('#elemento_borrar').val()
+			if (id!=""){
+				jQuery.ajax({
+					type: "POST",
+					url: base_url_proyecto+"eliminar_reporte",
+					data: 'id='+id,
+					success: function(result) {
+						var fila = $('.fila_'+id);
+						fila.css('display','none');
+						$('#elemento_borrar').val('');	
+						$('#enviadas_cabecera').html(result);
+						}
+				});
+				
+				
+			}
+		
+	});
+	$('.btn-compartir-email').click(function(){
+		
+			//$('#frm_actualizar').submit();
+			//return false;
+			//alert($('#elemento_borrar').val());
+			if (!validar_email($('#email').val()) && !validar_email($('#email1').val()) ){
+				alert('Debe rellenar al menos su email, el de un amigo y ser validos.');
+				return false;
+			}else{
+				/*jQuery.ajax({
+					type: "POST",
+					url: base_url_proyecto+"compartir_email",
+					data: $('#frm_compartir').serialize(),
+					success: function(result) {
+						$('#email').val('');
+						$('#email1').val('');
+						$('#email2').val('');
+						$('#email3').val('');
+						}
+				});*/
+				$('#frm_compartir').submit();
+				
+				
+			}
+			return false;
+		
+	});
+	
+	$('.ttp').tooltip();
+
+	 $( "#formSuperior" ).submit(function( event ) {
+	 	//$('#btnSuperior').html('<i class="fa fa-repeat fa-spin"></i>');
+	 	var cadenaInicial=$('#usuarioBuscar').val();
+	 	var cadenaFinal;
+	 	if (cadenaInicial[0]="@"){
+	 		if (cadenaInicial.charAt(0)=="@"){
+	 			cadenaFinal=cadenaInicial.substring(1);
+	 		} else {
+	 			cadenaFinal=cadenaInicial;
+	 		}
+	 	}
+        window.location.href = cadenaFinal;
+        event.preventDefault();
+});
+
+	$('#cambiar_email').click(function(){
+		
+			//$('#frm_actualizar').submit();
+			//return false;
+			//alert($('#elemento_borrar').val());
+			var email2= $('#email2').val();
+			if (email2!=""){
+				jQuery.ajax({
+					type: "POST",
+					url: base_url_proyecto+"revalidar_email",
+					data: 'email='+email2+'&email_cambiar='+$('#email_cambiar').val(),
+					success: function(result) {
+						if (result==1){
+							$('#email').val(email2);	
+							$('#frm').submit();
+							$('#email_cambiar').val(email2);
+							$('#email2').val('');
+							$('.msg_error').html('Email cambiado correctamente ya puede proceder a solicitar su nueva autorizacion.');
+							
+							//var url = base_url_proyecto+'reenviar_email';    
+							//$(location).attr('href',url);
+						}else{
+							
+							$('.msg_error').html('Lo sentimos el email ya esta siendo usado');
+						}
+					}
+				});
+				
+				
+			}
+		
+	});
+});

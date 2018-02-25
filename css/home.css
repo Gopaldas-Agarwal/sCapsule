@@ -1,0 +1,125 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+caption, tbody, tfoot, thead, th,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input[type="button"]
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+}
+
+
+body
+{
+	z-index:0;
+	background-color:#efefff;
+}
+
+#upper
+{
+
+	background-color: rgb(24,25,71);
+	height:15%;
+	width:100%;
+}
+
+#container
+{
+	top:15%;
+	width:100%;
+	background-color:#efefff;
+	margin:0px auto;
+	color:rgb(24,25,71);
+	height:70%;
+	margin-bottom:80px;
+}
+
+#user_profile_pic
+{
+	float:left;
+	margin:60px 100px;
+	height:200px;
+	width:200px;
+	border:4px solid #ccc;
+}
+
+.table_div
+{
+	float:left;
+	
+}
+
+.customButton
+{
+	background:transparent; 
+	border:0px; 
+	cursor:pointer;
+	margin:4px;
+	border-radius:6px;
+	box-shadow:1px 1px 4px #1376B9 inset;
+	background:#dedeee;
+	padding:7px;
+}
+
+.customButton:hover
+{
+	box-shadow:1px 1px 4px rgb(50,51,97) ;
+}
+
+.table_profile
+{
+	float:left;
+	margin-top:60px;
+	color:rgb(24,25,71);
+	font-weight:500;
+	text-transform:capitalize;
+	font-size:20px;
+}
+
+.table_profile input[type="text"]
+{
+	text-transform:capitalize;
+	width:120px;
+	background:#eee;
+	border:1px dashed black;
+	border-radius:6px;
+	text-align:center;
+	font-size:16px;
+}
+
+#footer
+{
+	position:absolute;
+	bottom:0px;
+	background-color: rgb(24,25,71);
+	bottom:0px;
+	color:white;
+	height:15%;
+	width:100%;
+	
+}
+
+.footertext
+{
+	padding:30px 50px;
+	font-size:20px;
+}

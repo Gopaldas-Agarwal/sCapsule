@@ -1,0 +1,60 @@
+#form1
+{
+	margin-top:20%;
+}
+
+
+#leftdiv
+{
+	float:left;
+	height:100%;
+	width:50%;
+	padding-top:0%;
+	background:rgb(24,25,71);
+	
+}
+
+#rightdiv
+{
+	float:left;
+	height:100%;
+	width:50%;
+	background-size:cover;
+	background-image:;	/*logo*/
+}
+
+
+
+
+
+#heading
+{
+	padding:200px 180px;
+	height:100px;
+	width:100%;
+	color:white;
+	font-family:Oswald,"Capture it",BlackJack;
+	font-size:80px;
+	letter-spacing:4px;
+	font-style:italic;
+	font-weight:bolder;
+}
+
+#tagline
+{
+	padding:200px 150px;
+	height:100px;
+	width:100px;
+	color:white;
+	font-weight:bold;
+	font-family: "Caviar Dreams","Open Sans",Helvetica,Arial;
+	line-height: 1.1;
+	font-size: 32px;
+}
+
+#nav
+{
+	position:absolute;
+	top:20px;
+	left:20px;
+}
